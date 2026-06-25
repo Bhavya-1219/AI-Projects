@@ -59,7 +59,9 @@ export default function RestaurantsCatalogClient({ initialRestaurants }: Catalog
 
     // Filter by veg-only (every item in restaurant is veg)
     if (vegOnly) {
-      result = result.filter((r) => r.menuItems.every((item) => item.isVeg));
+      result = result.filter(
+  (r) => (r.menuItems ?? []).every((item) => item.isVeg)
+);
     }
 
     // Sort by selection
@@ -249,7 +251,7 @@ export default function RestaurantsCatalogClient({ initialRestaurants }: Catalog
                   </span>
                   <span>•</span>
                   <span>{restaurant.cuisine}</span>
-                  {restaurant.menuItems.every((item) => item.isVeg) && (
+                  {(restaurant.menuItems ?? []).every((item) => item.isVeg) && (
                     <>
                       <span>•</span>
                       <span className="badge badge-veg">Veg Only</span>

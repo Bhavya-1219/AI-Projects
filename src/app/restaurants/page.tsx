@@ -4,20 +4,20 @@ import Footer from '@/components/Footer';
 import RestaurantsCatalogClient from '@/components/RestaurantsCatalogClient';
 
 export default async function RestaurantsPage() {
-  const restaurants = await prisma.restaurant.findMany({
-    include: {
-      menuItems: {
-        select: {
-          id: true,
-          name: true,
-          isVeg: true,
-        },
-      },
-    },
-    orderBy: {
-      rating: 'desc',
-    },
-  });
+  let restaurants: any[] = [];
+
+try {
+  restaurants = await prisma.restaurant.findMany({
+  include: {
+    menuItems: true,
+  },
+  orderBy: {
+    rating: "desc",
+  },
+});
+} catch (error) {
+  console.log("Database not available", error);
+};
 
   return (
     <>
