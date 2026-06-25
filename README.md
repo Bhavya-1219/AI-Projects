@@ -6,8 +6,7 @@ https://ai-projects-bhavya-1219.vercel.app
 
 ## 📂 GitHub Repository
 
-https://github.com/Bhavya-1219/AI-Projects
-
+https://github.com/Bhavya-1219/Food-Ordering-App
 ## 🚀 Features
 
 - User Authentication
